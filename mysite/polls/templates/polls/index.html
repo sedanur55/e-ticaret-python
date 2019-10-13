@@ -1,0 +1,54 @@
+{% extends "homebase.html" %}
+
+{% block title %}Anket Sayfası{% endblock %}
+
+
+
+{% block sidebar %}
+{% include "sidebar.html" %}
+{% endblock %}
+
+
+
+
+
+{% block body %}
+
+
+<section id="cart_items">
+	<div class="container">
+		<div class="breadcrumbs">
+			<ol class="breadcrumb">
+				<li><a href="/">Home</a></li>
+				<li class="active">Anket Sayfası</li>
+			</ol>
+		</div>
+		<section id="do_action">
+	<div class="container">
+
+		<div class="row">
+			Anket Soruları <br>
+
+			{% if latest_question_list %}
+			<ul>
+				{% for question in latest_question_list %}
+				<li><a href="/polls/{{ question.id }}/">{{ question.question_text }}</a></li>
+				{% endfor %}
+			</ul>
+			{% else %}
+			<p>Kayıt Yok</p>
+			{% endif %}
+
+
+		</div>
+	</div>
+</section><!--/#do_action-->
+
+	</div>
+</section> <!--/#cart_items-->
+
+
+
+
+{% endblock %}
+
